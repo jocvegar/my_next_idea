@@ -1,0 +1,15 @@
+<div class="container">
+    <p id="notice"><%= notice %></p>
+    <h1>Procesos Activos</h1>
+    <br>
+    <ul class="list-group list-group-flush">
+        <% @packages.each do |package| %>
+            <li class="list-group-item list-group-item-action">
+                <strong><%= package.title %></strong> iniciado el
+                <span class="text-muted"><%= package.start_date.strftime("%d de %b %Y") %></span> y finaliza el
+                <span class="text-muted"><%= package.finish_date.strftime("%d de %b %Y") %></span>.
+            </li>
+        <% end %>
+    </ul>
+</div>
+<!-- #{package.start_date.strftime("%d de %b %Y")} -->

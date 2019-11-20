@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+packages = Package.create([
+	{title: "Carretera", start_date: DateTime.now, finish_date: DateTime.now + 1.year},
+	{title: "Puente", start_date: DateTime.now - 1.day, finish_date: DateTime.now + 1.year},
+	{title: "Calle", start_date: DateTime.now - 4.days, finish_date: DateTime.now + 2.years},
+	{title: "Cuenca", start_date: DateTime.now, finish_date: DateTime.now + 90.days},
+	{title: "Botadero", start_date: DateTime.now, finish_date: DateTime.now + 6.months}
+])
