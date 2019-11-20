@@ -20,8 +20,7 @@
       <div id="page-content-wrapper">
         <%= render "shared/top_navbar" %>
         <div class="container-fluid">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <%= flash_messages %>
           <%= yield %>
         </div>
       </div>
