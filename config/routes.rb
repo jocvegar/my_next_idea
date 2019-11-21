@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
 	resources :packages
 	resources :teams
+	resources :team_memberships, only: [:create, :destroy]
 end
 

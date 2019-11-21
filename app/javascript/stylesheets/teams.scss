@@ -1,0 +1,16 @@
+#teams {
+	a {
+		color: inherit;
+		text-decoration: none;
+		&:hover {
+			color: #428bca;
+		}
+	}
+}
+
+#team {
+	.btn-add-member {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}

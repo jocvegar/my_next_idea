@@ -43,11 +43,14 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        format.html { redirect_to teams_path, notice: 'Equipo Actualizado' }
         format.json { render :show, status: :ok, location: @team }
       else
-        format.html { render :edit }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+        @error = "No se puede actualizar. #{error_notice @team} #{user_results[:errors].to_a.to_sentence}"
+        format.html do
+          flash.now[:notice] = @error
+          render :edit
+        end
       end
     end
   end
@@ -70,6 +73,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:user_id, :name)
+      params.require(:team).permit(:name, :user_ids => [])
     end
 end

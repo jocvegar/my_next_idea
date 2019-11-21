@@ -7,7 +7,7 @@ class User < ApplicationRecord
 	:recoverable, :rememberable, :validatable
 
 	# TEAM MEMBERSHIP - Association for users as members of a team through team management
-	has_many :team_memberships, dependent: :destroy, class_name: "Teams::Membership"
+	has_many :team_memberships, dependent: :destroy
 	has_many :teams, through: :team_memberships
 
 	def username

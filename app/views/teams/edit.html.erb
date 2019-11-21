@@ -1,6 +1,13 @@
-<h1>Editing Team</h1>
+<div class="container">
+	<div class="col-12">
+		<div>
+			<h2>Editar <%= @team.name %></h2>
+			<br>
+			<%= link_to 'Show', @team %> |
+			<%= link_to 'Back', teams_path %>
+			<br>
+			<%= render 'edit_form', team: @team, users: @users %>
+		</div>
+	</div>
+</div>
 
-<%= render 'form', team: @team %>
-
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
