@@ -8,8 +8,24 @@
   </div>
 
   <div class="row">
-      <div class="col-12 offset-sm-2 col-sm-8">
-          <%= f.button :submit, "Salvar", class: "btn btn-primary btn-block" %>
-      </div>
+    <div class="col-12 offset-sm-2 col-sm-8">
+      <%= f.association :users, label: false, collection: User.all.map { |u| [u.username, (u.id)] }, input_html: { class: 'add-chosen', :data => { :placeholder => 'Seleccionar usarios'} } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-3 col-3">
+      <%= link_to team, class: "btn btn-secondary btn-sm btn-block" do %>
+        Regresar
+      <% end %>
+    </div>
+    <div class="col-3">
+      <%= f.button :submit, "Salvar", class: "btn btn-primary btn-block" %>
+    </div>
   </div>
 <% end %>
+
+
+
+
+
