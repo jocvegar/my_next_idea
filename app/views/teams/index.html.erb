@@ -2,10 +2,10 @@
     <div id="teams">
         <h1>Equipos</h1>
         <section class="py-5">
-            <div class="container">
+            <div class="fluid-container">
                 <div class="row">
                     <% @teams.each do |team| %>
-                        <div class="col-lg-4">
+                        <div class="col-12 col-lg-4">
                             <div class="card mb-5 mb-lg-5">
                                 <div class="card-body">
                                     <h5 class="text-muted text-uppercase text-center">
@@ -20,7 +20,7 @@
                                         </ul>
                                     <% else %>
                                         <div class="col-md-12">
-                                            <p class="text-center muted">
+                                            <p class="text-center text-muted">
                                                 No tiene usuarios
                                             </p>
                                         </div>
