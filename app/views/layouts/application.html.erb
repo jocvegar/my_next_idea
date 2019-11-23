@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
   <head>
-    <title>Secretaría de Educación</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#C50001"/>
+
+    <title>Secretaría de Educación</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Lighthouse Details -->
     <link rel="manifest" href="/manifest.json">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#C50001"/>
+
+    <script src="https://kit.fontawesome.com/2a60e80c30.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <div class="d-flex" id="wrapper">
-      <%= render "shared/side_navbar" %>
-      <div id="page-content-wrapper">
-        <%= render "shared/top_navbar" %>
-        <div class="container-fluid py-2">
+    <!-- <div class="d-flex" id="wrapper"> -->
+      <%#= render "shared/side_navbar" %>
+      <!-- <div id="page-content-wrapper"> -->
+        <%#= render "shared/top_navbar" %>
+        <!-- <div class="container-fluid py-2"> -->
           <%= flash_messages %>
           <%= yield %>
-        </div>
-      </div>
-    </div>
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
   </body>
 </html>
