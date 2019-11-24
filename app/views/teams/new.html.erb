@@ -1,5 +1,16 @@
-<h1>New Team</h1>
-
-<%= render 'form', team: @team %>
-
-<%= link_to 'Back', teams_path %>
+<div class="container">
+	<div class="col-12">
+		<div class="row">
+		    <div class="col-9">
+		        <h2>Nuevo Departamento</h2>
+		    </div>
+		    <div class="col-3">
+	            <%= link_to teams_path, class: "btn btn-outline-secondary" do %>
+	                <span><i class="fas fa-chevron-left"></i></span> Atrás
+	            <% end %>
+		    </div>
+		</div>
+		<br>
+		<%= render 'form', team: @team, users: @users, back_link: teams_path %>
+	</div>
+</div>

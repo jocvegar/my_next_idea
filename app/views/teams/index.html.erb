@@ -1,6 +1,20 @@
 <div class="container">
     <div id="teams">
-        <h1>Departamentos</h1>
+        <div class="row">
+            <div class="col-9">
+                <h1>Departamentos</h1>
+            </div>
+            <div class="col-3">
+                <div class="btn-group pull-right" role="group" aria-label="editar">
+                    <%= link_to root_path, class: "btn btn-outline-secondary" do %>
+                        <span><i class="fas fa-chevron-left"></i></span> Atrás
+                    <% end %>
+                    <%= link_to new_team_path, class: "btn btn-outline-success" do %>
+                        <span><i class="fas fa-plus"></i></span> Nuevo
+                    <% end %>
+                </div>
+            </div>
+        </div>
         <section class="py-5">
             <div class="fluid-container">
                 <div class="row">

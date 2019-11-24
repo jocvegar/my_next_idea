@@ -28,8 +28,10 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     respond_to do |format|
+      puts "@team.valid? :#{@team.valid?}"
+      puts "@team.errors.full_messages :#{@team.errors.full_messages}"
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to @team, notice: 'Departamento creado!' }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to teams_path, notice: 'Equipo Actualizado' }
+        format.html { redirect_to teams_path, notice: 'Departamento actualizado!' }
         format.json { render :show, status: :ok, location: @team }
       else
         @error = "No se puede actualizar. #{error_notice @team} #{user_results[:errors].to_a.to_sentence}"
@@ -60,7 +62,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.html { redirect_to teams_url, notice: 'Departamento borrado!' }
       format.json { head :no_content }
     end
   end

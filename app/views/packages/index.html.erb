@@ -1,35 +1,37 @@
 <div class="container">
-    <div class="row">
-        <div class="col-10">
-            <h1>Procesos Activos</h1>
-        </div>
-        <div class="col-2">
-            <%= link_to root_path do %>
-                <button type="button" class="btn btn-outline-secondary">
-                    <span><i class="fas fa-chevron-left"></i></span> Atrás
-                </button>
-            <% end %>
-        </div>
-    </div>
-    <br>
-    <div class="table-responsive">
-      <table class="table table-hover">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Fecha de Inicio</th>
-              <th scope="col">Fecha de Fin</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @packages.each do |package| %>
-                <tr>
-                    <th scope="row"><%= package.title %></th>
-                    <td><%= package.start_date.strftime("%d de %b %Y") %></td>
-                    <td><%= package.finish_date.strftime("%d de %b %Y") %></td>
-                </tr>
-            <% end %>
-          </tbody>
-      </table>
+    <div id="packages">
+      <div class="row">
+          <div class="col-10">
+              <h1>Procesos Activos</h1>
+          </div>
+          <div class="col-2">
+              <%= link_to root_path do %>
+                  <button type="button" class="btn btn-outline-secondary">
+                      <span><i class="fas fa-chevron-left"></i></span> Atrás
+                  </button>
+              <% end %>
+          </div>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha de Inicio</th>
+                <th scope="col">Fecha de Fin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @packages.each do |package| %>
+                  <tr>
+                      <th scope="row"><%= package.title %></th>
+                      <td><%= package.start_date.strftime("%d de %b %Y") %></td>
+                      <td><%= package.finish_date.strftime("%d de %b %Y") %></td>
+                  </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
     </div>
 </div>

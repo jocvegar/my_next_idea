@@ -3,7 +3,7 @@
 		<div>
 			<h2>Editar <%= @team.name %></h2>
 			<br>
-			<%= render 'form', team: @team, users: @users %>
+			<%= render 'form', team: @team, users: @users, back_link: @team %>
 		</div>
 	</div>
 </div>
