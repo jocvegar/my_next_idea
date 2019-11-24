@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#C50001"/>
 
-    <title>Secretaría de Educación</title>
+    <title><%= title_helper(yield(:title)) %></title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

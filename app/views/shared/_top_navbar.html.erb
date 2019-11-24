@@ -1,12 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-
         <button type="button" id="sidebarCollapse" class="navbar-btn">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
         <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
         </button>
@@ -27,12 +25,10 @@
                 </li>
             </ul>
         </div> -->
-
         <div class="dropdown show">
             <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= user_signed_in? ? "#{current_user.username}" : "Hola" %>
             </a>
-
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="https://www.se.gob.hn/" target=”_blank”>Secretaría</a>
                 <% if user_signed_in? %>
@@ -42,8 +38,6 @@
                 <% end %>
             </div>
         </div>
-
-
     </div>
 </nav>
 
