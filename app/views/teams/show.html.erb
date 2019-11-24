@@ -8,7 +8,7 @@
 		    <div class="row">
                 <ul class="fa-ul">
                 	<% @team.users.each do |user| %>
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span>
+                    <li><span class="fa-li"><i class="fas fa-user"></i></span>
 						<%= user.username %>
                     </li>
                     <% end %>
@@ -27,12 +27,12 @@
 		<br>
 		<div class="row">
 			<div class="col-6 col-sm-4 offset-sm-2">
-				<%= link_to teams_path, class: "btn btn-secondary btn-sm btn-block" do %>
+				<%= link_to teams_path, class: "btn btn-secondary btn-block" do %>
 					Regresar
 				<% end %>
 			</div>
 			<div class="col-6 col-sm-4">
-				<%= link_to edit_team_path(@team), class: "btn btn-primary btn-sm btn-block" do %>
+				<%= link_to edit_team_path(@team), class: "btn btn-primary btn-block" do %>
 					Editar
 				<% end %>
 			</div>

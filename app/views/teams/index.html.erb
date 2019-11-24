@@ -1,21 +1,22 @@
 <div class="container">
     <div id="teams">
-        <h1>Equipos</h1>
+        <h1>Departamentos</h1>
         <section class="py-5">
             <div class="fluid-container">
                 <div class="row">
                     <% @teams.each do |team| %>
                         <div class="col-12 col-lg-4">
                             <div class="card mb-5 mb-lg-5">
+                                <div class="card-header">
+                                  <h5 class="text-muted text-uppercase text-center">
+                                      <%= link_to team.name, team %>
+                                  </h5>
+                                </div>
                                 <div class="card-body">
-                                    <h5 class="text-muted text-uppercase text-center">
-                                        <%= link_to team.name, team %>
-                                    </h5>
-                                    <hr>
                                     <% if team.users.present? %>
                                         <ul class="fa-ul">
                                             <% team.users.each do |user| %>
-                                                <li><span class="fa-li"><i class="fas fa-check"></i></span><%= user.username %></li>
+                                                <li><span class="fa-li"><i class="fas fa-user"></i></span><%= user.username %></li>
                                             <% end %>
                                         </ul>
                                     <% else %>

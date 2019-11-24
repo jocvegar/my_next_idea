@@ -1,10 +1,44 @@
-<!-- Sidebar -->
-<div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading"><%= link_to "SE", root_path %></div>
-    <div class="list-group list-group-flush">
-    	<%= link_to "Procesos", packages_path, class: "list-group-item list-group-item-action bg-light" %>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Procesos Terminados</a>
-        <%= link_to "Equipos", teams_path, class: "list-group-item list-group-item-action bg-light" %>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+<nav id="sidebar">
+    <div class="sidebar-header">
+    	<%= link_to root_path do %>
+	    	<h3>Secretaría de Educación</h3>
+	    	<strong>SE</strong>
+    	<% end %>
     </div>
-</div>
+
+    <ul class="list-unstyled components">
+        <li class="<%= active_class('/packages') %>">
+        	<%= link_to packages_path do %>
+        		<i class="fas fa-clipboard"></i>
+        		Procesos
+        	<% end %>
+        </li>
+        <li class="<%= active_class('/teams') %>">
+        	<%= link_to teams_path do %>
+        		<i class="fas fa-pencil-ruler"></i>
+        		Departamentos
+        	<% end %>
+            <!-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-copy"></i>
+                Pages
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul> -->
+        </li>
+        <li class="<%#= active_class('/packages') %>">
+        	<%= link_to "#" do %>
+        		<i class="fas fa-users"></i>
+        		Usuarios
+        	<% end %>
+        </li>
+    </ul>
+</nav>

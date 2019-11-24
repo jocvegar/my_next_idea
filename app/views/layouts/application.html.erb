@@ -13,20 +13,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Lighthouse Details -->
     <link rel="manifest" href="/manifest.json">
-
     <script src="https://kit.fontawesome.com/2a60e80c30.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <!-- <div class="d-flex" id="wrapper"> -->
-      <%#= render "shared/side_navbar" %>
-      <!-- <div id="page-content-wrapper"> -->
-        <%#= render "shared/top_navbar" %>
-        <!-- <div class="container-fluid py-2"> -->
-          <%= flash_messages %>
-          <%= yield %>
-        <!-- </div> -->
-      <!-- </div> -->
-    <!-- </div> -->
+    <div class="wrapper">
+      <%= render "shared/side_navbar" %>
+      <div id="content">
+        <%= render "shared/top_navbar" %>
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+     </div>
   </body>
 </html>

@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("custom/index")
+require("custom/chosen_jquery")
+require("custom/chosen_select")
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
