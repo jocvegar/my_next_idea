@@ -67,7 +67,7 @@ i, span {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #385ECE;
+  background: #1A6DCA;
   color: #fff;
   transition: all 0.3s;
 
@@ -121,7 +121,7 @@ i, span {
 
   .sidebar-header {
     padding: 20px;
-    background: #274eea;
+    background: #1967BE;
 
     strong {
       display: none;
@@ -142,7 +142,7 @@ i, span {
         display: block;
 
         &:hover {
-          color: #385ECE;
+          color: #1A6DCA;
           background: #fff;
         }
 
@@ -153,7 +153,7 @@ i, span {
 
       &.active > a {
         color: #fff;
-        background: #274eea;
+        background: #1967BE;
       }
     }
   }
@@ -162,7 +162,7 @@ i, span {
 a {
   &[aria-expanded="true"] {
     color: #fff;
-    background: #274eea;
+    background: #1967BE;
   }
 
   &[data-toggle="collapse"] {
@@ -182,7 +182,7 @@ ul {
   ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #274eea;
+    background: #1967BE;
   }
 
   &.CTAs {
@@ -201,15 +201,15 @@ ul {
 a {
   &.download {
     background: #fff;
-    color: #385ECE;
+    color: #1A6DCA;
   }
 
   &.article {
-    background: #274eea !important;
+    background: #1967BE !important;
     color: #fff !important;
 
     &:hover {
-      background: #274eea !important;
+      background: #1967BE !important;
       color: #fff !important;
     }
   }
@@ -224,7 +224,6 @@ a {
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
-  background-color: #F2F3F6;
 }
 
 #sidebarCollapse {
