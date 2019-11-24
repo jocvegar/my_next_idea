@@ -28,13 +28,22 @@
 		<div class="row">
 			<div class="col-6 col-sm-4 offset-sm-2">
 				<%= link_to teams_path, class: "btn btn-secondary btn-block" do %>
-					Regresar
+					<span><i class="fas fa-chevron-left"></i></span> Atrás
 				<% end %>
 			</div>
 			<div class="col-6 col-sm-4">
 				<%= link_to edit_team_path(@team), class: "btn btn-primary btn-block" do %>
 					Editar
 				<% end %>
+			</div>
+		</div>
+		<div class="row py-5">
+			<div class="col-6 offset-3">
+				<%= link_to team_path(@team), method: :delete,
+				    data: { confirm: "Estas seguro de querer borrar #{@team.name}?" } do %>
+					<p class="text-center faded-red">Borrar?</p>
+				<% end %>
+
 			</div>
 		</div>
 	</div>

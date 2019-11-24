@@ -3,3 +3,17 @@
 @import './teams.scss';
 @import './bootstrap.css';
 @import './bootstrap-chosen.scss';
+
+
+.faded-red {
+	color: #ff8282;
+	&:hover {
+		color: hsla(0,100%,55%,1);
+	}
+	a {
+		color: #ff8282;
+		&:hover {
+			color: hsla(0,100%,55%,1);
+		}
+	}
+}

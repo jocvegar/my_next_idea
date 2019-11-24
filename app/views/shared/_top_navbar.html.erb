@@ -7,26 +7,43 @@
             <span></span>
         </button>
 
-        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Page</a>
+                    <a class="nav-link" href="#">Page 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Page</a>
+                    <a class="nav-link" href="#">Page 2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Page</a>
+                    <a class="nav-link" href="#">Page 3</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Page</a>
+                    <a class="nav-link" href="#">Page 4</a>
                 </li>
             </ul>
+        </div> -->
+
+        <div class="dropdown show">
+            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= user_signed_in? ? "#{current_user.username}" : "Hola" %>
+            </a>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="https://www.se.gob.hn/" target=”_blank”>Secretaría</a>
+                <% if user_signed_in? %>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to "Cerrar sesión", destroy_user_session_path , method: :delete,
+                        class: "dropdown-item" %>
+                <% end %>
+            </div>
         </div>
+
+
     </div>
 </nav>
 
