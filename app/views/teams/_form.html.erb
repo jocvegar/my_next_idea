@@ -11,13 +11,14 @@
   <div class="row">
     <div class="col-12 offset-sm-2 col-sm-8">
       <%= f.label "Editar Usuarios" %>
-      <%= f.association :users, label: false, collection: User.all.map { |u| [u.username, (u.id)] }, input_html: { class: 'add-chosen', :data => { :placeholder => 'Seleccionar usarios'} } %>
+      <%= f.association :users, label: false, collection: users.map { |u| [u.username, (u.id)] },
+        input_html: { class: 'add-chosen', :data => { :placeholder => 'Seleccionar usarios'} } %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-6 col-sm-4 offset-sm-2">
-      <%= link_to teams_path, class: "btn btn-secondary btn-block" do %>
+      <%= link_to back_link, class: "btn btn-secondary btn-block" do %>
         Regresar
       <% end %>
     </div>

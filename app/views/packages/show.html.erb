@@ -1,3 +1,52 @@
 <% provide :title, "Procesos" %>
-<%= link_to 'Edit', edit_package_path(@package) %> |
-<%= link_to 'Back', packages_path %>
+<div class="container">
+	<div id="team">
+		<h3 class="text-center">
+			<%= @package.title %>
+		</h3>
+		<p>Fecha de inicio: <%=  @package.start_date.strftime("%d de %b %Y") %></p>
+		<p>Fecha de fin: <%=  @package.finish_date.strftime("%d de %b %Y") %></p>
+		<hr>
+		<div class="container-fluid">
+		    <div class="row">
+                <ul class="fa-ul">
+                	<% @package.teams.each do |team| %>
+                    <li><span class="fa-li"><i class="fas fa-pencil-ruler"></i></span>
+						<%= team.name %>
+                    </li>
+                    <% end %>
+                </ul>
+
+		        <% if @package.teams.empty? %>
+		        	<div class="col-md-12">
+		        		<p class="text-center text-muted">
+		        			No tiene equipos
+		        		</p>
+		        	</div>
+		        <% end %>
+		    </div>
+		</div>
+		<hr>
+		<br>
+		<div class="row">
+			<div class="col-6 col-sm-4 offset-sm-2">
+				<%= link_to packages_path, class: "btn btn-secondary btn-block" do %>
+					<span><i class="fas fa-chevron-left"></i></span> Atrás
+				<% end %>
+			</div>
+			<div class="col-6 col-sm-4">
+				<%= link_to edit_package_path(@package), class: "btn btn-primary btn-block" do %>
+					Editar
+				<% end %>
+			</div>
+		</div>
+		<div class="row py-5">
+			<div class="col-6 offset-3">
+				<%= link_to package_path(@package), method: :delete,
+				    data: { confirm: "Estas seguro de querer borrar este proceso?" } do %>
+					<p class="text-center faded-red">Borrar?</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

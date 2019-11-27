@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_153656) do
+ActiveRecord::Schema.define(version: 2019_11_27_150039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigments", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "package_id", null: false
+    t.integer "position"
+    t.boolean "started", default: false
+    t.boolean "finished", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["package_id"], name: "index_assigments_on_package_id"
+    t.index ["team_id"], name: "index_assigments_on_team_id"
+  end
 
   create_table "packages", force: :cascade do |t|
     t.datetime "start_date"
@@ -53,6 +65,8 @@ ActiveRecord::Schema.define(version: 2019_11_20_153656) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assigments", "packages"
+  add_foreign_key "assigments", "teams"
   add_foreign_key "team_memberships", "teams"
   add_foreign_key "team_memberships", "users"
 end

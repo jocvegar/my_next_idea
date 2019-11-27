@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_users
 
   # GET /teams
   # GET /teams.json
@@ -76,5 +77,9 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :user_ids => [])
+    end
+
+    def set_users
+      @users = User.left_outer_joins(:team_memberships).where( team_memberships: { id: nil } )
     end
 end

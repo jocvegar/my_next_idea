@@ -70,6 +70,6 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.fetch(:package, {})
+      params.require(:package).permit(:title, :start_date, :finish_date, :team_ids => [])
     end
 end

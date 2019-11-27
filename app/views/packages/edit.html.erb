@@ -1,7 +1,10 @@
-<% provide :title, "Procesos" %>
-<h1>Editing Package</h1>
-
-<%= render 'form', package: @package %>
-
-<%= link_to 'Show', @package %> |
-<%= link_to 'Back', packages_path %>
+<% provide :title, "Proceso" %>
+<div class="container">
+	<div class="col-12">
+		<div>
+			<h2>Editar proceso</h2>
+			<br>
+			<%= render 'form', package: @package, back_link: @package %>
+		</div>
+	</div>
+</div>
