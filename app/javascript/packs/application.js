@@ -14,6 +14,9 @@ require("custom/chosen_select")
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/application'
+// DatePicker
+import 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

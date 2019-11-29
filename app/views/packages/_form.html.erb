@@ -11,12 +11,13 @@
   <div class="row">
       <div class="col-12 offset-sm-2 col-sm-4">
           <%= f.label "Fecha de Inicio" %> <br>
-          <%= f.input :start_date, as: :date, order: [:day, :month, :year], label: false %>
-
+          <%= f.input :start_date, as: :string, label: false,
+            input_html: { class: "datepicker" } %>
       </div>
       <div class="col-12 col-sm-4">
           <%= f.label "Fecha de Fin" %> <br>
-          <%= f.input :finish_date, as: :date, order: [:day, :month, :year], label: false %>
+          <%= f.input :finish_date, as: :string, label: false,
+            input_html: { class: "datepicker" }%>
       </div>
   </div>
   <hr>
@@ -39,3 +40,13 @@
     </div>
   </div>
 <% end %>
+
+
+<script>
+  flatpickr(".datepicker", {
+    altInput: true,
+    altFormat: "j F, Y",
+    dateFormat: "Y-m-d",
+  });
+</script>
+
