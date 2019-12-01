@@ -27,14 +27,18 @@
         </div> -->
         <div class="dropdown show">
             <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= user_signed_in? ? "#{current_user.username}" : "Hola" %>
+                <%= user_signed_in? ? "#{current_user.username}" : "Bienvenido" %>
             </a>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" style="right: 0;left: auto">
                 <a class="dropdown-item" href="https://www.se.gob.hn/" target=”_blank”>Secretaría</a>
+
                 <% if user_signed_in? %>
                     <div class="dropdown-divider"></div>
-                    <%= link_to "Cerrar sesión", destroy_user_session_path , method: :delete,
+                    <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete,
                         class: "dropdown-item" %>
+                <% else %>
+                <%= link_to "Iniciar sesión", new_user_session_path,
+                    class: "dropdown-item" %>
                 <% end %>
             </div>
         </div>
