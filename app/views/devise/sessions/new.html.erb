@@ -1,0 +1,31 @@
+ <div id= "sessions" class="container">
+     <div class="row">
+         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+             <div class="card card-signin my-5">
+                 <div class="card-body">
+                     <h5 class="card-title text-center">Iniciar Sesión</h5>
+                     <%= simple_form_for(resource, as: resource_name,
+                         url: session_path(resource_name), :html=> { class: 'form-signin' }) do |f| %>
+                         <div class="form-inputs">
+                             <%= f.input :email, required: false, autofocus: true,
+                                 input_html: { autocomplete: "email" } %>
+
+                             <%= f.input :password, required: false,
+                                 input_html: { autocomplete: "current-password" } %>
+                         </div>
+
+                         <div class="custom-control custom-checkbox mb-3">
+                             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                         </div>
+
+                         <button class="btn btn-lg btn-primary btn-block text-uppercase form-actions"
+                            type="submit">
+                             Sign in
+                         </button>
+                     <% end %>
+                 </div>
+             </div>
+         </div>
+         <%#= render "devise/shared/links" %>
+     </div>
+ </div>
