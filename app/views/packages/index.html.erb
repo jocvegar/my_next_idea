@@ -17,19 +17,19 @@
           </div>
       </div>
       <br>
-      <div class="table-responsive">
+      <div class="table-responsive-sm">
         <table class="table table-hover">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Fecha de Inicio</th>
-                <th scope="col">Fecha de Fin</th>
+                <th nowrap="nowrap" scope="col">Nombre</th>
+                <th nowrap="nowrap" scope="col">Fecha de Inicio</th>
+                <th nowrap="nowrap" scope="col">Fecha de Fin</th>
               </tr>
             </thead>
             <tbody>
               <% @packages.each do |package| %>
                   <tr onclick="window.location='<%= package_url(package) %>';">
-                      <th scope="row"><%= package.title %></th>
+                      <th nowrap="nowrap" scope="row"><%= package.title %></th>
                       <td><%= package.start_date.strftime("%d de %b %Y") %></td>
                       <td><%= package.finish_date.strftime("%d de %b %Y") %></td>
                   </tr>

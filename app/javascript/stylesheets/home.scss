@@ -3,7 +3,14 @@
   margin: 20px 0;
   border: 1px solid #eee;
   border-left-width: 5px;
-  border-radius: 3px;
+  border-radius: 0.35rem;
+  background-color: #fff;
+
+  .callout-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+
   h5 {
     margin-top: 0;
     margin-bottom: 5px;
