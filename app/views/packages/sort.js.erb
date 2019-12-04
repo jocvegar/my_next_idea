@@ -1,0 +1,5 @@
+$('#assigments-loop').html('<%= j render "assigments_loop", assigments: @assigments %>');
+
+var e = $.Event("reLoadJS");
+$('body').trigger(e);
+

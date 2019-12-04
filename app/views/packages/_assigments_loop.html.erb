@@ -1,0 +1,8 @@
+<div id="packagesList" class="list-group" data-url="<%= sort_packages_url(id: assigments.last.package.id) %>">
+	<% assigments.each do |assigment| %>
+		<%= content_tag :div, class: "list-group-item", data: { id: "#{assigment.id}" } do %>
+			<span class="pr-1"><%= assigment.position %></span>
+			<strong><%= assigment.team.name %></strong>
+		<% end %>
+	<% end %>
+</div>

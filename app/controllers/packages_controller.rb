@@ -1,6 +1,6 @@
 class PackagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_package, only: [:show, :edit, :update, :destroy]
+  before_action :set_package, only: [:show, :edit, :update, :destroy, :sort]
 
   # GET /packages
   # GET /packages.json
@@ -59,6 +59,18 @@ class PackagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to packages_url, notice: 'Package was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def sort
+    @assigments = @package.assigments
+
+    params[:assigment]["0"].each_with_index do |id, index|
+      Assigment.where(id: id.to_i).update_all(position: index + 1)
+    end
+
+    respond_to do |f|
+      f.js
     end
   end
 

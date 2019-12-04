@@ -10,6 +10,8 @@ require("channels")
 require("custom/index")
 require("custom/chosen_jquery")
 require("custom/chosen_select")
+require("custom/flatpickr")
+require("custom/sortable")
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +19,9 @@ import '../stylesheets/application'
 // DatePicker
 import 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+// Sortablejs
+import Sortable from 'sortablejs';
+window.Sortable = Sortable;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

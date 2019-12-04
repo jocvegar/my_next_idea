@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 	get '/manifest.json' => "service_worker#manifest"
 	get '/offline.html' => "service_worker#offline"
 
-	resources :packages
+	resources :packages do
+		collection do
+			patch :sort
+		end
+	end
 	resources :teams
 	resources :team_memberships, only: [:create, :destroy]
 end

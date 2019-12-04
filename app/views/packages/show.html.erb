@@ -12,27 +12,21 @@
 				<p><strong>Fecha de fin</strong> <%= @package.finish_date.strftime("%d de %b %Y") %></p>
 			</div>
 		</div>
-		<hr>
-		<div class="container-fluid">
-		    <div class="row">
-                <ul class="fa-ul">
-                	<% @package.teams.each do |team| %>
-                    <li><span class="fa-li"><i class="fas fa-pencil-ruler"></i></span>
-						<%= team.name %>
-                    </li>
-                    <% end %>
-                </ul>
 
-		        <% if @package.teams.empty? %>
-		        	<div class="col-md-12">
-		        		<p class="text-center text-muted">
-		        			No tiene equipos
-		        		</p>
-		        	</div>
-		        <% end %>
-		    </div>
+		<div class="container">
+			<% if @package.assigments.empty? %>
+				<div class="col-md-12">
+					<p class="text-center text-muted">
+						No tiene equipos
+					</p>
+				</div>
+			<% else %>
+				<div id="assigments-loop">
+					<%= render 'assigments_loop', assigments: @package.assigments %>
+				</div>
+			<% end %>
 		</div>
-		<hr>
+
 		<br>
 		<div class="row">
 			<div class="col-6 col-sm-4 offset-sm-2">
