@@ -1,0 +1,54 @@
+<% provide :title, "Usuarios" %>
+<div class="container">
+    <div id="users">
+		<div class="row">
+			<div class="col-12 col-md-9">
+				<h1>Usuarios</h1>
+			</div>
+			<div class="col-12 col-md-3 text-right">
+				<div class="btn-group pull-right" role="group" aria-label="editar">
+					<%= link_to root_path, class: "btn btn-outline-secondary" do %>
+						<span><i class="fas fa-chevron-left"></i></span> Atrás
+					<% end %>
+					<%#= link_to new_package_path, class: "btn btn-outline-success" do %>
+						<!-- <span><i class="fas fa-plus"></i></span> Nuevo -->
+					<%# end if current_user.manager? %>
+				</div>
+			</div>
+			<br>
+			<input class="form-control mx-3" id="myInput" type="text" placeholder="Buscar…">
+		</div>
+		<br>
+		<div class="table-responsive-sm">
+			<table class="table table-hover">
+				<thead class="thead-light">
+					<tr>
+						<th nowrap="nowrap" scope="col">Nombre</th>
+						<th nowrap="nowrap" scope="col">Apellido</th>
+						<th nowrap="nowrap" scope="col">Departamento</th>
+						<th nowrap="nowrap" scope="col">Correo</th>
+					</tr>
+				</thead>
+				<tbody id="userTable">
+					<% @users.each do |user| %>
+						<tr>
+							<th nowrap="nowrap" scope="row"><%= user.first_name %></th>
+							<td><%= user.last_name %></td>
+							<td><%= user.teams&.first&.name ? user.teams&.first&.name : " - " %></td>
+							<td><%= user.email %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+	$("#myInput").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+			$("#userTable tr").filter(function() {
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+	});
+</script>
