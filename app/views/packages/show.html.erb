@@ -1,18 +1,18 @@
 <% provide :title, "Procesos" %>
 <div class="container">
 	<div id="team">
-		<h3 class="text-center">
+		<h1>
 			<%= @package.title %>
-		</h3>
-		<div class="row text-center">
-			<div class="col-12 col-md-6">
-				<p><strong>Fecha de inicio</strong> <%= @package.start_date.strftime("%d de %b %Y") %></p>
+		</h1>
+		<div class="row">
+			<div class="col-12">
+				<strong>Fecha de inicio:</strong> <%= @package.start_date.strftime("%d de %b %Y") %>
 			</div>
-			<div class="col-12 col-md-6">
-				<p><strong>Fecha de fin</strong> <%= @package.finish_date.strftime("%d de %b %Y") %></p>
+			<div class="col-12">
+				<strong>Fecha de fin:</strong> <%= @package.finish_date.strftime("%d de %b %Y") %>
 			</div>
 		</div>
-
+		<hr>
 		<div class="container">
 			<% if @package.assigments.empty? %>
 				<div class="col-md-12">
@@ -29,16 +29,36 @@
 
 		<br>
 		<div class="row">
-			<div class="col-6 col-sm-4 offset-sm-2">
-				<%= link_to packages_path, class: "btn btn-secondary btn-block" do %>
-					<span><i class="fas fa-chevron-left"></i></span> Atrás
-				<% end %>
-			</div>
-			<div class="col-6 col-sm-4">
-				<%= link_to edit_package_path(@package), class: "btn btn-primary btn-block" do %>
-					Editar
-				<% end if current_user.manager? %>
-			</div>
+			<% if current_user.manager? %>
+				<div class="col-6 col-sm-4">
+					<%= link_to packages_path, class: "btn btn-secondary btn-block" do %>
+						<span><i class="fas fa-chevron-left"></i></span> Atrás
+					<% end %>
+				</div>
+				<div class="col-6 col-sm-4">
+					<%= link_to edit_package_path(@package), class: "btn btn-primary btn-block" do %>
+						Editar
+					<% end %>
+				</div>
+				<div class="col-6 col-sm-4">
+					<%= link_to "#", class: "btn btn-success btn-block" do %>
+						Terminar
+					<% end %>
+				</div>
+			<% else %>
+				<div class="col-6 col-sm-4 offset-2">
+					<%= link_to packages_path, class: "btn btn-secondary btn-block" do %>
+						<span><i class="fas fa-chevron-left"></i></span> Atrás
+					<% end %>
+				</div>
+				<div class="col-6 col-sm-4">
+					<%= link_to package_finished_path(@package), method: :patch,
+						data: { confirm: "Estas seguro de terminar proceso asignado?" },
+						class: "btn btn-success btn-block" do %>
+						Terminar
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 		<div class="row py-5">
 			<div class="col-6 offset-3">

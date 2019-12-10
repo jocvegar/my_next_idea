@@ -1,8 +1,13 @@
-<div id="packagesList" class="list-group" data-url="<%= sort_packages_url(id: assigments.last.package.id) %>">
-	<% assigments.each do |assigment| %>
-		<%= content_tag :div, class: "list-group-item", data: { id: "#{assigment.id}" } do %>
-			<span class="pr-1"><%= assigment.position %></span>
-			<strong><%= assigment.team.name %></strong>
-		<% end %>
-	<% end %>
+<h4 class="text-center">Equipos Asignados</h4><br>
+<div class="row">
+	<div class="col-10 offset-1">
+		<div id="packagesList" class="list-group" data-url="<%= sort_packages_url(id: assigments.last.package.id) %>">
+			<% assigments.each do |assigment| %>
+				<%= content_tag :div, class: "list-group-item", data: { id: "#{assigment.id}" } do %>
+					<span class="pr-1"><%= assigment.position %></span>
+					<strong><%= assigment.team.name %></strong>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>

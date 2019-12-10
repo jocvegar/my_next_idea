@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	get '/offline.html' => "service_worker#offline"
 
 	resources :packages do
+		patch '/finished' => "packages#finished"
 		collection do
 			patch :sort
 		end
