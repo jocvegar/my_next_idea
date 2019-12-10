@@ -1,7 +1,7 @@
 <%= simple_form_for package do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="row">
+    <div class="row">
       <div class="col-12 offset-sm-2 col-sm-8">
           <%= f.label "Título de Proceso" %>
           <%= f.input :title, label: false, placeholder: "Título" %>
@@ -21,13 +21,15 @@
       </div>
   </div>
   <hr>
-  <div class="row">
-    <div class="col-12 offset-sm-2 col-sm-8">
-      <%= f.label "Assignar a Equipos" %>
-      <%= f.association :teams, label: false, collection: Team.all.map { |team| [team.name, (team.id)] },
-        input_html: { class: 'add-chosen', :data => { :placeholder => 'Seleccionar equipos'} } %>
+  <% unless package.new_record? %>
+    <div class="row">
+      <div class="col-12 offset-sm-2 col-sm-8">
+        <%= f.label "Assignar a Equipos" %>
+        <%= f.association :teams, label: false, collection: Team.all.map { |team| [team.name, (team.id)] },
+          input_html: { class: 'add-chosen', :data => { :placeholder => 'Seleccionar equipos'} } %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="row">
     <div class="col-6 col-sm-4 offset-sm-2">

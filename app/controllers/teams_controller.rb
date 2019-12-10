@@ -1,12 +1,13 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_manager!, only: [:create, :edit, :update, :destroy]
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :set_users
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.all.order(:name)
   end
 
   # GET /teams/1

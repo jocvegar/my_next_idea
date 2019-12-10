@@ -35,7 +35,7 @@
 			<div class="col-6 col-sm-4">
 				<%= link_to edit_team_path(@team), class: "btn btn-primary btn-block" do %>
 					Editar
-				<% end %>
+				<% end if current_user.manager? %>
 			</div>
 		</div>
 		<div class="row py-5">
@@ -43,7 +43,7 @@
 				<%= link_to team_path(@team), method: :delete,
 				    data: { confirm: "Estas seguro de querer borrar #{@team.name}?" } do %>
 					<p class="text-center faded-red">Borrar?</p>
-				<% end %>
+				<% end if current_user.manager? %>
 			</div>
 		</div>
 	</div>
