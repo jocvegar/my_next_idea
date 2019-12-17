@@ -1,11 +1,25 @@
 <h4 class="text-center">Equipos Asignados</h4><br>
 <div class="row">
-	<div class="col-10 offset-1">
+	<div class="col-12">
 		<div id="packagesList" class="list-group" data-url="<%= sort_packages_url(id: assigments.last.package.id) %>">
 			<% assigments.each do |assigment| %>
 				<%= content_tag :div, class: "list-group-item", data: { id: "#{assigment.id}" } do %>
 					<span class="pr-1"><%= assigment.position %></span>
-					<strong><%= assigment.team.name %></strong>
+					<strong>
+						<% if assigment.finished == true && assigment.started == true %>
+							<span class="text-muted"><%= assigment.team.name %></span>
+						<% elsif assigment.started == true && assigment.finished == false && (current_user.manager? || assigment.belongs_to_user?(current_user)) %>
+							<span class="text-warning"><%= assigment.team.name %></span>
+							<span class="float-right">
+								<%= link_to assigment_path(assigment), method: :patch,
+									data: { confirm: "Estas seguro de terminar proceso asignado?" } do %>
+									<small>Terminar</small>
+								<% end %>
+							</span>
+						<% else %>
+							<span><%= assigment.team.name %></span>
+						<% end %>
+					</strong>
 				<% end %>
 			<% end %>
 		</div>

@@ -13,6 +13,14 @@
         		Procesos
         	<% end %>
         </li>
+
+        <li class="<%= active_class('/finished_packages') %>">
+            <%= link_to finished_packages_path do %>
+                <i class="far fa-check-square"></i>
+                Terminados
+            <% end %>
+        </li>
+
         <li class="<%= active_class('/teams') %>">
         	<%= link_to teams_path do %>
         		<i class="fas fa-pencil-ruler"></i>

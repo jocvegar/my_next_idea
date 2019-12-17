@@ -16,5 +16,8 @@ Rails.application.routes.draw do
 	resources :teams
 	resources :team_memberships, only: [:create, :destroy]
 	resources :users, only: [:index]
-end
 
+	resources :assigments, only: [:update]
+
+	resources :finished_packages, only: [:index]
+end

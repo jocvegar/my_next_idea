@@ -7,10 +7,10 @@ class PackagesController < ApplicationController
   # GET /packages.json
   def index
     if current_user.manager?
-      @packages = Package.all
+      @packages = Package.on_going.order('start_date')
     else
       @packages = []
-      Package.all.each do |package|
+      Package.on_going.order('start_date').each do |package|
         if package.publish? &&
           package.assigned_to_user?(current_user) &&
           package.assigment_that_belong_to_user(current_user).started == true &&
@@ -85,18 +85,6 @@ class PackagesController < ApplicationController
 
     respond_to do |f|
       f.js
-    end
-  end
-
-  def finished
-    @package = Package.find(params[:package_id])
-    assigment = @package.assigment_that_belong_to_user(current_user)
-    respond_to do |format|
-      if assigment.update(started: true, finished: true)
-        format.html { redirect_to root_url, notice: 'Proceso finalizado' }
-      else
-        format.html { redirect_to @package, notice: 'Ocurrio un error tratar de nuevo' }
-      end
     end
   end
 

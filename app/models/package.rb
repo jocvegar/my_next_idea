@@ -1,4 +1,8 @@
 class Package < ApplicationRecord
+	scope :on_going, -> { where(terminado: false) }
+	scope :finished, -> { where(terminado: true) }
+
+
 	validates_presence_of :title, :start_date
 
 	has_many :assigments, -> { order(position: :asc) }, dependent: :destroy
@@ -19,7 +23,7 @@ class Package < ApplicationRecord
 
 	def initiate_assigment
 		if self.publish == true && self.assigments
-			self.assigments.where(position: 1).update(started: true)
+			self.assigments.where(position: 1).first.update(started: true)
 		end
 	end
 
