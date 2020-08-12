@@ -10,7 +10,7 @@
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "serialize-javascript": "2.1.2",
+    "serialize-javascript": "3.1.0",
     "sortablejs": "^1.10.1",
     "turbolinks": "^5.2.0"
   },
